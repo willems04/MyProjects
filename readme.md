@@ -1,4 +1,4 @@
-                    #MY WEB DEVELOPMENT LEARNING PROJECTS#
+## MY WEB DEVELOPMENT LEARNING PROJECTS
 
 
 Hi! I'm Willem and welcome to my web development portfolio! This repository contains all the
@@ -6,7 +6,7 @@ websites and projects I've built while learning HTML, CSS, and JavaScript.
 Each project represents a step in my journey to becoming a better web developer.
 
 
-                                #PROJECTS#
+# Projects
 
 
 1. FIRST WEBSITE
@@ -56,7 +56,7 @@ Each project represents a step in my journey to becoming a better web developer.
      Shows the evolution of my web development skills.
 
 
-                              TECHNOLOGIES USED
+# TECHNOLOGIES USED
 
 
 ✓ HTML5 - Semantic markup, page structure, forms
@@ -64,7 +64,7 @@ Each project represents a step in my journey to becoming a better web developer.
 ✓ JavaScript (Vanilla) - DOM manipulation, event handling, functions, logic
 
 
-                                KEY LEARNINGS
+# KEY LEARNINGS                              
 
 
 Throughout these projects, I've learned:
@@ -77,7 +77,7 @@ Throughout these projects, I've learned:
 • Code Organization: Project structure, naming conventions, maintainability
 
 
-                              HOW TO USE THIS
+# HOW TO USE THIS                              
 
 
 1. Each project folder contains its own:
@@ -96,7 +96,7 @@ Throughout these projects, I've learned:
    - See the progression of my coding style and abilities
 
 
-                                MY JOURNEY
+# MY JOURNEY          
 
 
 This repository represents my learning journey from a complete beginner to
@@ -110,7 +110,7 @@ The progression shows:
 • From personal projects to professional-looking websites
 
 
-                              WHAT'S NEXT?
+# WHAT'S NEXT?
 
 
 Future learning goals:
@@ -121,7 +121,7 @@ Future learning goals:
 • Responsive design and mobile optimization
 
 
-                           FEEL FREE TO EXPLORE!
+# FEEL FREE TO EXPLORE!
 
 
 This repository is meant to showcase my learning journey. I'm proud of how far
