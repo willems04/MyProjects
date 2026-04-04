@@ -27,7 +27,7 @@ if (navToggle && navMenu) {
         if (window.innerWidth > 768) {
             closeMobileMenu();
         }
-    });
+    }, { passive: true });
 }
 
 navLinks.forEach(link => {
@@ -57,8 +57,10 @@ navLinks.forEach(link => {
     });
 });
 
-// Update active nav link on scroll
-window.addEventListener('scroll', () => {
+const header = document.querySelector('header');
+
+// Update active nav link and header styles on scroll.
+const handleScroll = () => {
     let current = '';
     
     document.querySelectorAll('section').forEach(section => {
@@ -75,17 +77,17 @@ window.addEventListener('scroll', () => {
             link.classList.add('active');
         }
     });
-});
 
-// Add scroll effect to header
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-        header.style.boxShadow = '0 6px 20px rgba(255, 107, 107, 0.2)';
-    } else {
-        header.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
+    if (header) {
+        if (window.scrollY > 50) {
+            header.style.boxShadow = '0 6px 20px rgba(255, 107, 107, 0.2)';
+        } else {
+            header.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
+        }
     }
-});
+};
+
+window.addEventListener('scroll', handleScroll, { passive: true });
 
 // Intersection Observer for fade-in animations
 const animatedSections = document.querySelectorAll('.section, .gallery, .services, .hours, .contact, .cta-section');

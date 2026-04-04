@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conrad's Tattoo Studio | Custom Tattoo Art</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" href="assets/fillerimage.png" type="image/png">
 </head>
@@ -13,10 +14,10 @@
     <header>
         <nav class="navbar">
             <div class="nav-container">
-                <a class="logo-image-link" href="index.html" aria-label="Go to home section">
+                <a class="logo-image-link" href="index.html" aria-label="Go to home page">
                     <img src="assets/fillerimage.png" alt="Conrad's Tattoo Studio Logo" class="logo-image">
                 </a>
-                <a class="logo" href="index.html" aria-label="Go to home section">
+                <a class="logo" href="index.html" aria-label="Go to home page">
                     <h1>CONRAD'S INK</h1>
                 </a>
                 <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
@@ -55,7 +56,7 @@
                     <p><strong>100% original designs • Professional • Passionate</strong></p>
                 </div>
                 <div class="about-image">
-                    <img src="assets/about.png" alt="Conrad's workspace" class="rounded-image">
+                    <img src="assets/about.jpg" alt="Conrad's workspace" class="rounded-image" loading="lazy" decoding="async">
                 </div>
             </div>
         </section>
@@ -64,31 +65,29 @@
         <section id="gallery" class="gallery">
             <div class="content-wrapper">
                 <h2>Featured Portfolio</h2>
-                <p class="section-subtitle">Explore some of our latest custom tattoo designs
-                    <br> Click on a card to view the full gallery of tattoos</p>
-                </p>
+                <p class="section-subtitle">Explore some of our latest custom tattoo designs</p>
                 <p class="swipe-hint">Click on a card to view the full gallery of tattoos</p>
                 <p class="swipe-hint">Swipe to see more featured tattoos 
                     <br> <span aria-hidden="true">&rarr; &rarr; &rarr; &rarr; &rarr;</span></p>
                 
                 <div class="gallery-grid">
                     <a class="fgallery-card" href="tattoos.html" aria-label="View full tattoo gallery">
-                        <img src="assets/ct7a.jpg" alt="Tattoo design 1">
+                        <img src="assets/ct7a.jpg" alt="Tattoo design 1" loading="lazy" decoding="async">
                     </a>
                     <a class="fgallery-card" href="tattoos.html" aria-label="View full tattoo gallery">
-                        <img src="assets/ct7b.jpg" alt="Tattoo design 2">
+                        <img src="assets/ct7b.jpg" alt="Tattoo design 2" loading="lazy" decoding="async">
                     </a>
                     <a class="fgallery-card" href="tattoos.html" aria-label="View full tattoo gallery">
-                        <img src="assets/ct7c.jpg" alt="Tattoo design 3">
+                        <img src="assets/ct7c.jpg" alt="Tattoo design 3" loading="lazy" decoding="async">
                     </a>
                     <a class="fgallery-card" href="tattoos.html" aria-label="View full tattoo gallery">
-                        <img src="assets/ct1.jpg" alt="Tattoo design 4">
+                        <img src="assets/ct1.jpg" alt="Tattoo design 4" loading="lazy" decoding="async">
                     </a>
                     <a class="fgallery-card" href="tattoos.html" aria-label="View full tattoo gallery">
-                        <img src="assets/ct4.jpg" alt="Tattoo design 5">
+                        <img src="assets/ct4.jpg" alt="Tattoo design 5" loading="lazy" decoding="async">
                     </a>
                     <a class="fgallery-card" href="tattoos.html" aria-label="View full tattoo gallery">
-                        <img src="assets/ct11.jpg" alt="Tattoo design 6">
+                        <img src="assets/ct11.jpg" alt="Tattoo design 6" loading="lazy" decoding="async">
                     </a>
                 </div>
             </div>
@@ -182,7 +181,7 @@
                         <div class="info-card">
                             <i class="fab fa-instagram"></i>
                             <h3>Instagram</h3>
-                            <p><a href="https://instagram.com/inkz.tattooartist" target="_blank">@inkz.tattooartist</a></p>
+                            <p><a href="https://instagram.com/inkz.tattooartist" target="_blank" rel="noopener noreferrer">@inkz.tattooartist</a></p>
                         </div>
                         <div class="info-card">
                             <i class="fas fa-envelope"></i>
@@ -213,7 +212,7 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 
 </body>
 </html>
