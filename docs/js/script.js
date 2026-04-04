@@ -2,6 +2,7 @@
 const navLinks = document.querySelectorAll('.nav-a');
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
+const sections = document.querySelectorAll('section');
 
 const closeMobileMenu = () => {
     if (!navMenu || !navToggle) return;
@@ -59,11 +60,18 @@ navLinks.forEach(link => {
 
 const header = document.querySelector('header');
 
+const isElementVisible = (element, offsetFactor = 0.85) => {
+    if (!element) return false;
+
+    const rect = element.getBoundingClientRect();
+    return rect.top < window.innerHeight * offsetFactor && rect.bottom > 0;
+};
+
 // Update active nav link and header styles on scroll.
 const handleScroll = () => {
     let current = '';
     
-    document.querySelectorAll('section').forEach(section => {
+    sections.forEach(section => {
         const sectionTop = section.offsetTop;
         
         if (window.scrollY >= sectionTop - 200) {
@@ -87,7 +95,64 @@ const handleScroll = () => {
     }
 };
 
-window.addEventListener('scroll', handleScroll, { passive: true });
+let scrollTicking = false;
+
+window.addEventListener('scroll', () => {
+    if (scrollTicking) return;
+
+    scrollTicking = true;
+    window.requestAnimationFrame(() => {
+        handleScroll();
+        scrollTicking = false;
+    });
+}, { passive: true });
+
+handleScroll();
+
+// Hide the mobile sticky CTA when the main conversion section is visible.
+const mobileBookNow = document.querySelector('.mobile-book-now');
+const ctaSection = document.querySelector('.cta-section');
+const indexHeroSection = document.querySelector('.hero');
+const indexContactSection = document.querySelector('#contact.contact');
+const ctaVisibilityTargets = ctaSection
+    ? [ctaSection]
+    : [indexHeroSection, indexContactSection].filter((element) => element);
+
+if (mobileBookNow && ctaVisibilityTargets.length > 0) {
+    const setMobileBookNowHidden = (hidden) => {
+        mobileBookNow.classList.toggle('is-hidden', hidden);
+    };
+
+    if ('IntersectionObserver' in window) {
+        const visibleTargets = new Set();
+        const ctaVisibilityObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    visibleTargets.add(entry.target);
+                } else {
+                    visibleTargets.delete(entry.target);
+                }
+            });
+
+            setMobileBookNowHidden(visibleTargets.size > 0);
+        }, {
+            threshold: 0.25
+        });
+
+        ctaVisibilityTargets.forEach((target) => {
+            ctaVisibilityObserver.observe(target);
+        });
+    } else {
+        const toggleOnScroll = () => {
+            const isVisible = ctaVisibilityTargets.some((target) => isElementVisible(target));
+
+            setMobileBookNowHidden(isVisible);
+        };
+
+        window.addEventListener('scroll', toggleOnScroll, { passive: true });
+        toggleOnScroll();
+    }
+}
 
 // Intersection Observer for fade-in animations
 const animatedSections = document.querySelectorAll('.section, .gallery, .services, .hours, .contact, .cta-section');
@@ -126,7 +191,7 @@ if ('IntersectionObserver' in window) {
     }, 1200);
 }
 
-// Gallery lightbox on tattoos page
+// Gallery lightbox on gallery page
 const lightbox = document.getElementById('gallery-lightbox');
 
 if (lightbox) {

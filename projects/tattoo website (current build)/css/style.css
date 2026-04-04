@@ -297,8 +297,73 @@ main {
     transform: translateY(-2px);
 }
 
+.cta-button-box {
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem;
+    margin: 1.4rem auto 0;
+    border-radius: calc(var(--border-radius) + 2px);
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.14), rgba(255, 215, 0, 0.08));
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.cta-section {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 3rem 2rem;
+    margin: 4rem auto;
+    border-radius: var(--border-radius);
+    background: linear-gradient(145deg, rgba(16, 27, 52, 0.92) 0%, rgba(26, 40, 71, 0.9) 55%, rgba(20, 33, 61, 0.92) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.28);
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -35%;
+    left: 50%;
+    width: 520px;
+    height: 520px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.16) 0%, rgba(212, 175, 55, 0) 70%);
+}
+
+.cta-section h2,
+.cta-section p,
+.cta-section .cta-button-box {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-section h2 {
+    margin-bottom: 0.85rem;
+}
+
+.cta-section p {
+    max-width: 680px;
+    margin: 0 auto;
+    color: var(--text-muted);
+}
+
+.cta-section .cta-button {
+    min-width: 220px;
+}
+
 .mobile-book-now {
     display: none;
+}
+
+.mobile-book-now.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(14px);
 }
 
 /* ==================== SECTIONS ==================== */
@@ -950,7 +1015,8 @@ text-transform: none;
     .gallery,
     .services,
     .hours,
-    .contact {
+    .contact,
+    .cta-section {
         padding: 2rem 1rem;
         margin: 2rem 0;
     }
@@ -958,6 +1024,10 @@ text-transform: none;
     .cta-button {
         padding: 0.8rem 2rem;
         font-size: 0.8rem;
+    }
+
+    .cta-button-box {
+        padding: 0.6rem;
     }
 
     .lightbox-image {
@@ -1013,4 +1083,17 @@ text-transform: none;
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
 }
