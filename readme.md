@@ -1,6 +1,6 @@
 # Hi, I'm Willem
 
-I'm new to HTML and CSS, but I'm learning more over time and building my JavaScript skills as I go.
+I'm new to HTML and CSS, but I'm learning more over time.
 
 ## About This Repo
 
